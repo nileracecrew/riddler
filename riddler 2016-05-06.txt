@@ -1,0 +1,21 @@
+P(Xi not chosen) = (M-1)/M
+P(Xi chosen at least once after N trials) = 1 - ((M-1)/M)^N
+
+sum(Xi, 1, M) = M - ((M-1)/M)^N * M
+              = M^N / M^(N-1) - (M-1)^N/M^(N-1)
+              = (M^N - (M-1)^N) / M^(N-1)
+
+
+M * (1 - ((M-1)/M)^N)
+
+We need to figure out the probability that a button is picked at least once. First, the probability the ith button is not picked by one person is
+
+P(i not picked) = (M-1)/M
+
+So the probability that a button is not picked by any of the N people is
+
+P(i not picked by anyone) = ((M-1)/M)^N
+=> P(i picked at least once) = 1 - ((M-1)/M)^N
+
+The expected value is then the sum of this for i = 1 to M, which is just
+E(P(i picked at least once)) = M * (1 - ((M-1)/M)^N)

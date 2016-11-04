@@ -1,0 +1,19 @@
+We collect gems until we have at least one of each class, which means that the last gem we collect will be the only one of that class in our collection. So we need to consider each case where we have exactly one gem of one class, and every possible permutation of the other gems where we have at least one from each remaining class.
+
+Let p1, p2, and p3 be the probability of the common, uncommon, and rare gems respectively. Also let x, y, and z be the number of gems collected in each respective class. Finally let M be the number of gems we collect before the last (i.e., we collect M+1 gems before stopping). In the cases where the common gem is the last gem collected, the expectation value is
+
+E(x, M; common gem last) = p1 * (sum over permutations of p2^y * p3^z where y+z=M and y,z>=1)
+
+If the uncommon gem is last, then
+
+E(x, M; uncommon gem last) =  p2 * (sum over permutations of x*p1^x * p3^z where x+z=M and x,z>=1)
+
+Note we needed to include x in the sum here since it changes over permutations. Similarly, if the rare gem is last:
+
+E(x, M; rare gem last) =  p3 * (sum over permutations of x*p1^x * p2^y where x+y=M and x,y>=1)
+
+The overall expectation value is a sum over all possible M:
+
+ sum(M=2, infinity) [E(x, M; common) +  E(x, M; uncommon) + E(x, M; rare)]
+
+I needed repeated use of the binomial theorem and geometric series formulas to evaluate this sum. Details here: https://www.dropbox.com/sh/j0xvgxltundmook/AAC-Qbi5a1V5vd4hIwPr0iJca?dl=0
